@@ -2,28 +2,30 @@
 #include <stdlib.h>
 
 /**
- * main - multiplies two numbers, prints the results
- * @argc: argument count
- * @argv: argument vector
+ * main - program that multiplies two number
+ * print the result, followed by a new line
+ * If the program does not receive two arguments,
+ * your program should print Error, followed by a new line,
+ * and return 1
+ * @argc: argc parameter
+ * @argv: listed array
  *
- * Return: Multiple of two number, ERROR if program did not receive 2 arguments
+ * Return: 0
  */
 
 int main(int argc, char *argv[])
 {
-	int sum;
-	int num1 = atoi(argv[1]);
-	int num2 = atoi(argv[2]);
+	int result, num1, num2;
 
-	sum = num1 * num2;
 	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else
-	{
-		printf("%d\n", sum);
-		return (0);
-	}
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	result = num1 * num2;
+
+	printf("%d\n", result);
+	return (0);
 }

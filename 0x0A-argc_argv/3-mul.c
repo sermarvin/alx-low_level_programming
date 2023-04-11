@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf("Value of argc is %d\n", argc);
 		printf("%d\n", sum);
 		return (0);
 	}

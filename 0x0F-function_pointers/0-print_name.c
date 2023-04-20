@@ -10,8 +10,6 @@
 
 void print_name(char *name, void (*f)(char *))
 {
-	void (*f_pointer)(char *);
-
-	f_pointer = f;
-	f_pointer(name);
+	if (name && f)
+		f(name);
 }

@@ -38,6 +38,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 				counter++;
 				curr = curr->next;
 			}
+			else if (curr->next == NULL)
+			{
+				new_node->next = NULL;
+			}
 			else
 			{
 				new_node->next = curr->next;

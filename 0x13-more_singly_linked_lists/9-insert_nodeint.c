@@ -37,8 +37,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		counter++;
 		curr = curr->next;
 	}
-	printf("%d\n", curr->n);
-	printf("counter is %u\n", counter);
 	if (curr->next == NULL && idx == counter)
 	{
 		new_node->next = NULL;

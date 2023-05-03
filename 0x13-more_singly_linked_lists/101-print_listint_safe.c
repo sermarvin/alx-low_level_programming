@@ -22,7 +22,6 @@ void free_listp(listp_s **head)
 		}
 		*head = NULL;
 	}
-	free;
 }
 
 /**

@@ -29,7 +29,10 @@ int append_text_to_file(const char *filename, char *text_content)
 		strlength++;
 	}
 
-	ch_written = write(fd, text_content, strlength);
+	if (text_content != NULL)
+	{
+		ch_written = write(fd, text_content, strlength);
+	}
 	if (ch_written == -1)
 	{
 		return (-1);

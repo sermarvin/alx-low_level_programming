@@ -25,7 +25,7 @@ int main(int ac, char **av)
  * @file_from: number of arguments the main function accepts
  * @file_to: name of the files
  *
- * Return: 0
+ * Return: 1 on success
 */
 int copy_from_file_to(const char *file_from, const char *file_to)
 {
@@ -43,11 +43,7 @@ int copy_from_file_to(const char *file_from, const char *file_to)
 	fd1 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	buffer = malloc(sizeof(char) * bytes);
 	if (buffer == NULL)
-	{
-		free(buffer);
 		return (0);
-	}
-
 	while ((ch_read = read(fd, buffer, bytes)) > 0)
 	{
 		ch_written = write(fd1, buffer, ch_read);
@@ -56,6 +52,11 @@ int copy_from_file_to(const char *file_from, const char *file_to)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
+	}
+	if (ch_read == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 	if (close(fd1) == -1)
 	{
@@ -75,5 +76,6 @@ int copy_from_file_to(const char *file_from, const char *file_to)
 	{
 		close(fd);
 	}
+	free(buffer);
 	return (1);
 }

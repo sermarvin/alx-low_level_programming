@@ -3,9 +3,9 @@
 int copy_from_file_to(const char *file_from, const char *file_to);
 
 /**
- * main - copies the content of a file to another file
- * @ac: number of arguments the main function accepts
- * @av: name of the files
+ * main - main function
+ * @ac: number of arguments
+ * @av: arguments passed
  *
  * Return: 0
 */
@@ -20,7 +20,13 @@ int main(int ac, char **av)
 	copy_from_file_to(av[1], av[2]);
 	return (0);
 }
-
+/**
+ * copy_from_file_to - copies the content of a file to another file
+ * @file_from: number of arguments the main function accepts
+ * @file_to: name of the files
+ *
+ * Return: 0
+*/
 int copy_from_file_to(const char *file_from, const char *file_to)
 {
 	char *buffer;

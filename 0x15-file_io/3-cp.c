@@ -41,13 +41,18 @@ int copy_from_file_to(const char *file_from, const char *file_to)
 		exit(98);
 	}
 	fd1 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd1 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		exit(99);
+	}
 	buffer = malloc(sizeof(char) * bytes);
 	if (buffer == NULL)
 		return (0);
 	while ((ch_read = read(fd, buffer, bytes)) > 0)
 	{
 		ch_written = write(fd1, buffer, ch_read);
-		if (fd1 == -1 || ch_written == -1)
+		if (ch_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);

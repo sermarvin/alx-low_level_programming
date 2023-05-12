@@ -1,12 +1,11 @@
 #include "main.h"
-#include <errno.h>
 
 int copy_from_file_to(const char *file_from, const char *file_to);
 
 /**
  * main - copies the content of a file to another file
- * @argc: number of arguments the main function accepts
- * @argv: name of the files
+ * @ac: number of arguments the main function accepts
+ * @av: name of the files
  *
  * Return: 0
 */
@@ -70,5 +69,5 @@ int copy_from_file_to(const char *file_from, const char *file_to)
 	{
 		close(fd);
 	}
-	return(1);
+	return (1);
 }
